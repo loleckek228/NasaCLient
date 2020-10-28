@@ -1,4 +1,4 @@
-package com.example.nasaclient.mvp.model.entity
+package com.example.nasaclient.mvp.model.entity.marsphotos
 
 import com.google.gson.annotations.Expose
 

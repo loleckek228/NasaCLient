@@ -1,6 +1,6 @@
 package com.example.nasaclient.mvp.model.state
 
-import com.example.nasaclient.mvp.model.entity.MarsPhotos
+import com.example.nasaclient.mvp.model.entity.marsphotos.MarsPhotos
 
 sealed class MarsPhotosState {
     data class Error(val error: Throwable?) : MarsPhotosState()

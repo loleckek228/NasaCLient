@@ -82,10 +82,9 @@ class EarthPhotosFragment : MvpAppCompatFragment(), BackButtonListener, EarthPho
             is EarthPhotosState.Success -> {
                 showViewWorking()
 
-                state.data.let {
+                state.data?.let {
                     setDataToAdapter(state.data)
                 }
-
             }
         }
     }

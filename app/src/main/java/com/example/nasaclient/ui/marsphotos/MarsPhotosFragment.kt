@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nasaclient.R
 import com.example.nasaclient.application.App
 import com.example.nasaclient.di.module.marsphotos.MarsPhotosSubcomponent
-import com.example.nasaclient.mvp.model.entity.MarsPhoto
-import com.example.nasaclient.mvp.model.entity.MarsPhotos
+import com.example.nasaclient.mvp.model.entity.marsphotos.MarsPhoto
 import com.example.nasaclient.mvp.model.state.MarsPhotosState
 import com.example.nasaclient.mvp.presenter.MarsPhotosPresenter
 import com.example.nasaclient.mvp.view.MarsPhotosView
@@ -29,7 +28,7 @@ class MarsPhotosFragment : MvpAppCompatFragment(), BackButtonListener, MarsPhoto
             marsPhotosSubcomponent.inject(this)
         }
     }
-    private val adapter: MarsPhotosAdapter by lazy {
+    private val marsPhotosadapter: MarsPhotosAdapter by lazy {
         MarsPhotosAdapter().apply {
             App.instance.appComponent.inject(this)
         }
@@ -56,7 +55,7 @@ class MarsPhotosFragment : MvpAppCompatFragment(), BackButtonListener, MarsPhoto
     override fun init() {
         with(fragment_mars_photos_recycler_view) {
             layoutManager = LinearLayoutManager(context.applicationContext)
-            adapter = this.adapter
+            adapter = marsPhotosadapter
         }
     }
 
@@ -81,7 +80,7 @@ class MarsPhotosFragment : MvpAppCompatFragment(), BackButtonListener, MarsPhoto
             is MarsPhotosState.Success -> {
                 showViewWorking()
 
-                state.data?.marsPhotos?.let {
+                state.data?.photos?.let {
                     setDataToAdapter(it)
                 }
             }
@@ -89,7 +88,7 @@ class MarsPhotosFragment : MvpAppCompatFragment(), BackButtonListener, MarsPhoto
     }
 
     private fun setDataToAdapter(data: List<MarsPhoto>) {
-        adapter.setData(data)
+        marsPhotosadapter.setData(data)
     }
 
     private fun showViewLoading() {
