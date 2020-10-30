@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nasaclient.R
-import com.example.nasaclient.mvp.model.entity.marsphotos.MarsPhoto
+import com.example.nasaclient.mvp.model.entity.remote.marsphotos.MarsPhoto
 import com.example.nasaclient.mvp.view.image.IImageLoader
 import kotlinx.android.synthetic.main.fragment_mars_photos_recyclerview_item.view.*
 import javax.inject.Inject

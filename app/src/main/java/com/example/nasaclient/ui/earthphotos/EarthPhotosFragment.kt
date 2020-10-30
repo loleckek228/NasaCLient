@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nasaclient.R
 import com.example.nasaclient.application.App
 import com.example.nasaclient.di.module.earthphotos.EarthPhotosSubcomponent
-import com.example.nasaclient.mvp.model.entity.EarthPhoto
+import com.example.nasaclient.mvp.model.entity.remote.EarthPhoto
 import com.example.nasaclient.mvp.model.state.EarthPhotosState
-import com.example.nasaclient.mvp.model.state.SpacePhotoState
 import com.example.nasaclient.mvp.presenter.EarthPhotosPresenter
 import com.example.nasaclient.mvp.view.EarthPhotosView
 import com.example.nasaclient.ui.BackButtonListener

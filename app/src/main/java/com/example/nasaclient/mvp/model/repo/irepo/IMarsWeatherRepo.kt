@@ -4,5 +4,5 @@ import com.example.nasaclient.mvp.model.state.MarsWeatherState
 import io.reactivex.rxjava3.core.Observable
 
 interface IMarsWeatherRepo {
-    fun getMarsWeather(): Observable<MarsWeatherState>?
+    fun getMarsWeather(): Observable<MarsWeatherState>
 }

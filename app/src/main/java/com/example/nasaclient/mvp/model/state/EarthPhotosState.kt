@@ -1,6 +1,6 @@
 package com.example.nasaclient.mvp.model.state
 
-import com.example.nasaclient.mvp.model.entity.EarthPhoto
+import com.example.nasaclient.mvp.model.entity.remote.EarthPhoto
 
 sealed class EarthPhotosState {
     data class Error(val error: Throwable?) : EarthPhotosState()

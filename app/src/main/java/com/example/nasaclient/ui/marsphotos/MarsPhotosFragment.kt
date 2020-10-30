@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nasaclient.R
 import com.example.nasaclient.application.App
 import com.example.nasaclient.di.module.marsphotos.MarsPhotosSubcomponent
-import com.example.nasaclient.mvp.model.entity.marsphotos.MarsPhoto
+import com.example.nasaclient.mvp.model.entity.remote.marsphotos.MarsPhoto
 import com.example.nasaclient.mvp.model.state.MarsPhotosState
 import com.example.nasaclient.mvp.presenter.MarsPhotosPresenter
 import com.example.nasaclient.mvp.view.MarsPhotosView

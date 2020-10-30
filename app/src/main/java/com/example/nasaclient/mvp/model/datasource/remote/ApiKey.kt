@@ -1,4 +1,4 @@
-package com.example.nasaclient.mvp.model.datasource.api
+package com.example.nasaclient.mvp.model.datasource.remote
 
 open class ApiKey {
     companion object {

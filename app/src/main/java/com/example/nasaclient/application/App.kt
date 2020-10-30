@@ -6,6 +6,7 @@ import com.example.nasaclient.di.DaggerAppComponent
 import com.example.nasaclient.di.module.AppModule
 import com.example.nasaclient.di.module.earthphotos.EarthPhotosSubcomponent
 import com.example.nasaclient.di.module.marsphotos.MarsPhotosSubcomponent
+import com.example.nasaclient.di.module.marsweather.MarsWeatherSubcomponent
 import com.example.nasaclient.di.module.spacephoto.SpacePhotoSubcomponent
 import timber.log.Timber
 
@@ -20,6 +21,7 @@ class App : Application() {
     private var spacePhotoSubcomponent: SpacePhotoSubcomponent? = null
     private var marsPhotosSubcomponent: MarsPhotosSubcomponent? = null
     private var earthPhotosSubcomponent: EarthPhotosSubcomponent? = null
+    private var marsWeatherSubcomponent: MarsWeatherSubcomponent? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -58,5 +60,14 @@ class App : Application() {
 
     fun releaseEarthPhotosSubcomponent() {
         earthPhotosSubcomponent = null
+    }
+
+    fun initMarsWeatherSubcomponent() =
+        appComponent.marsWeatherSubcomponent().also {
+            marsWeatherSubcomponent = it
+        }
+
+    fun releaseMarsWeatherSubcomponent() {
+        marsWeatherSubcomponent = null
     }
 }

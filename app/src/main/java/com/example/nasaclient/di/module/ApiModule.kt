@@ -1,14 +1,15 @@
 package com.example.nasaclient.di.module
 
-import com.example.nasaclient.mvp.model.datasource.api.IEarthPhotosDataSource
-import com.example.nasaclient.mvp.model.datasource.api.IMarsPhotosDataSource
-import com.example.nasaclient.mvp.model.datasource.api.IMarsWeatherDataSource
-import com.example.nasaclient.mvp.model.datasource.api.ISpacePhotoDataSource
+import com.example.nasaclient.mvp.model.datasource.remote.*
+import com.example.nasaclient.mvp.model.network.INetworkStatus
+import com.example.nasaclient.ui.network.AndroidNetworkStatus
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -54,6 +55,7 @@ class ApiModule {
             .baseUrl(baseUrl)
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(createOkHttpClient())
             .build()
             .create(ISpacePhotoDataSource::class.java)
 
@@ -65,4 +67,13 @@ class ApiModule {
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .excludeFieldsWithoutExposeAnnotation()
             .create()
+
+    @Singleton
+    @Provides
+    fun createOkHttpClient(): OkHttpClient {
+        val httpClient = OkHttpClient.Builder()
+        httpClient.addInterceptor(BaseInterceptor.interceptor)
+        httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        return httpClient.build()
+    }
 }

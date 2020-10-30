@@ -1,6 +1,6 @@
-package com.example.nasaclient.mvp.model.datasource.api
+package com.example.nasaclient.mvp.model.datasource.remote
 
-import com.example.nasaclient.mvp.model.entity.marsphotos.MarsPhotos
+import com.example.nasaclient.mvp.model.entity.remote.marsphotos.MarsPhotos
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

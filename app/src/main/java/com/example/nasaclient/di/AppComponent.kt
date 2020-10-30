@@ -1,11 +1,9 @@
 package com.example.nasaclient.di
 
-import com.example.nasaclient.di.module.ApiModule
-import com.example.nasaclient.di.module.AppModule
-import com.example.nasaclient.di.module.CiceroneModule
-import com.example.nasaclient.di.module.ImageLoaderModule
+import com.example.nasaclient.di.module.*
 import com.example.nasaclient.di.module.earthphotos.EarthPhotosSubcomponent
 import com.example.nasaclient.di.module.marsphotos.MarsPhotosSubcomponent
+import com.example.nasaclient.di.module.marsweather.MarsWeatherSubcomponent
 import com.example.nasaclient.di.module.spacephoto.SpacePhotoSubcomponent
 import com.example.nasaclient.mvp.presenter.MainPresenter
 import com.example.nasaclient.mvp.presenter.MenuPresenter
@@ -23,7 +21,8 @@ import javax.inject.Singleton
         ApiModule::class,
         AppModule::class,
         CiceroneModule::class,
-        ImageLoaderModule::class
+        ImageLoaderModule::class,
+        CascheModule::class
     ]
 )
 
@@ -31,6 +30,7 @@ interface AppComponent {
     fun spacePhotoSubcomponent(): SpacePhotoSubcomponent
     fun marsPhotosSubcomponent(): MarsPhotosSubcomponent
     fun earthPhotosSubcomponent(): EarthPhotosSubcomponent
+    fun marsWeatherSubcomponent(): MarsWeatherSubcomponent
 
     fun inject(mainActivity: MainActivity)
     fun inject(mainPresenter: MainPresenter)

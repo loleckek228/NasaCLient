@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="2dp"
     app:cardElevation="5dp">
 
     <LinearLayout
@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/fragment_mars_weather_recyclerview_item_sol_textview"
             style="@style/HeaderTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
             android:text="@string/sol" />
 
         <TextView
+            android:id="@+id/fragment_mars_weather_recyclerview_item_date_textview"
             style="@style/BaseTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
             android:background="@color/black" />
 
         <TextView
+            android:id="@+id/fragment_mars_weather_recyclerview_item_high_textview"
             style="@style/BaseTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,6 +45,7 @@
             android:text="@string/high" />
 
         <TextView
+            android:id="@+id/fragment_mars_weather_recyclerview_item_low_textview"
             style="@style/BaseTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
