@@ -3,7 +3,6 @@ package com.example.nasaclient.navigation
 import androidx.fragment.app.Fragment
 import com.example.nasaclient.ui.earthphotos.EarthPhotosFragment
 import com.example.nasaclient.ui.marsphotos.MarsPhotosFragment
-import com.example.nasaclient.ui.marsweather.MarsWeatherFragment
 import com.example.nasaclient.ui.menu.MenuFragment
 import com.example.nasaclient.ui.spacephoto.SpacePhotoFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
@@ -19,10 +18,6 @@ class Screens {
 
     class MarsPhotosScreen : SupportAppScreen() {
         override fun getFragment(): Fragment? = MarsPhotosFragment()
-    }
-
-    class MarsWeatherScreen : SupportAppScreen() {
-        override fun getFragment(): Fragment? = MarsWeatherFragment()
     }
 
     class SpacePhotoScreen : SupportAppScreen() {

@@ -10,7 +10,6 @@ import com.example.nasaclient.mvp.presenter.MenuPresenter
 import com.example.nasaclient.mvp.view.MenuView
 import kotlinx.android.synthetic.main.earth_photos.*
 import kotlinx.android.synthetic.main.mars_photos.*
-import kotlinx.android.synthetic.main.mars_weather.*
 import kotlinx.android.synthetic.main.space_photo.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -33,16 +32,9 @@ class MenuFragment : MvpAppCompatFragment(), MenuView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        onMarsWeatherClicked()
         onEarthPhotosClicked()
         onSpacePhotoClicked()
         onMarsPhotosClicked()
-    }
-
-    private fun onMarsWeatherClicked() {
-        menu_mars_weather.setOnClickListener {
-            presenter.onMarsWeatherClicked()
-        }
     }
 
     private fun onEarthPhotosClicked() {

@@ -19,5 +19,6 @@ fun getYestardayDateString(): String {
 
 fun formatDate(date: String): String {
     val dateSplit = date.split(" ")
+
     return dateSplit[0].replace("-", "/")
 }

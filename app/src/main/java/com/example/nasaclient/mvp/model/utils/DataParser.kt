@@ -1,4 +1,4 @@
-package com.example.nasaclient.utils
+package com.example.nasaclient.mvp.model.utils
 
 import com.example.nasaclient.mvp.model.entity.local.RoomEarthPhoto
 import com.example.nasaclient.mvp.model.entity.local.RoomMarsPhoto
@@ -9,12 +9,12 @@ import com.example.nasaclient.mvp.model.entity.remote.marsphotos.MarsCamera
 import com.example.nasaclient.mvp.model.entity.remote.marsphotos.MarsPhoto
 import com.example.nasaclient.mvp.model.entity.remote.marsphotos.MarsPhotos
 
-fun mapRoomEarthPhotosToEarthPhotos(roomPhotos: List<RoomEarthPhoto>): List<EarthPhoto> {
+fun mapRoomEarthPhotosToEarthPhotos(roomPhotos: List<RoomEarthPhoto?>?): List<EarthPhoto> {
     val earthPhotos = mutableListOf<EarthPhoto>()
 
-    roomPhotos.map {
+    roomPhotos!!.map {
         val photo = EarthPhoto(
-            it.caption,
+            it!!.caption,
             it.date,
             it.image
         )

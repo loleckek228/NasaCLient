@@ -1,9 +1,7 @@
 package com.example.nasaclient.mvp.presenter
 
-import com.example.nasaclient.mvp.model.repo.irepo.IMarsPhotosRepo
-import com.example.nasaclient.mvp.model.repo.irepo.ISpacePhotoRepo
+import com.example.nasaclient.mvp.model.repo.irepo.IRepo
 import com.example.nasaclient.mvp.model.state.MarsPhotosState
-import com.example.nasaclient.mvp.model.state.SpacePhotoState
 import com.example.nasaclient.mvp.view.MarsPhotosView
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -18,14 +16,13 @@ class MarsPhotosPresenter(private val compositeDisposable: CompositeDisposable =
     MvpPresenter<MarsPhotosView>() {
 
     @Inject
-    lateinit var repo: IMarsPhotosRepo
+    lateinit var repo: IRepo<MarsPhotosState>
 
     @Inject
     lateinit var router: Router
 
     @Inject
     lateinit var scheduler: Scheduler
-
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -36,7 +33,7 @@ class MarsPhotosPresenter(private val compositeDisposable: CompositeDisposable =
 
     private fun loadData() {
         compositeDisposable.add(
-            repo.getMarsPhotos()
+            repo.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(scheduler)
                 .doOnSubscribe(doOnSubscribe())
@@ -58,8 +55,8 @@ class MarsPhotosPresenter(private val compositeDisposable: CompositeDisposable =
                 viewState.renderData(MarsPhotosState.Error(e))
             }
 
-            override fun onComplete() {}
-
+            override fun onComplete() {
+            }
         }
     }
 

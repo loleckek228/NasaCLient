@@ -1,9 +1,7 @@
 package com.example.nasaclient.mvp.presenter
 
-import com.example.nasaclient.mvp.model.repo.irepo.IEarthPhotosRepo
-import com.example.nasaclient.mvp.model.repo.irepo.IMarsPhotosRepo
+import com.example.nasaclient.mvp.model.repo.irepo.IRepo
 import com.example.nasaclient.mvp.model.state.EarthPhotosState
-import com.example.nasaclient.mvp.model.state.MarsPhotosState
 import com.example.nasaclient.mvp.view.EarthPhotosView
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -18,7 +16,7 @@ class EarthPhotosPresenter(private val compositeDisposable: CompositeDisposable 
     MvpPresenter<EarthPhotosView>() {
 
     @Inject
-    lateinit var repo: IEarthPhotosRepo
+    lateinit var repo: IRepo<EarthPhotosState>
 
     @Inject
     lateinit var router: Router
@@ -35,7 +33,7 @@ class EarthPhotosPresenter(private val compositeDisposable: CompositeDisposable 
 
     private fun loadData() {
         compositeDisposable.add(
-            repo.getEarthPhotos()
+            repo.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(scheduler)
                 .doOnSubscribe(doOnSubscribe())
@@ -57,7 +55,8 @@ class EarthPhotosPresenter(private val compositeDisposable: CompositeDisposable 
                 viewState.renderData(EarthPhotosState.Error(e))
             }
 
-            override fun onComplete() {}
+            override fun onComplete() {
+            }
         }
     }
 

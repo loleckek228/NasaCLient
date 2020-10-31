@@ -14,10 +14,6 @@ class MenuPresenter : MvpPresenter<MenuView>() {
         router.navigateTo(Screens.MarsPhotosScreen())
     }
 
-    fun onMarsWeatherClicked() {
-        router.navigateTo(Screens.MarsWeatherScreen())
-    }
-
     fun onEarthPhotosClicked() {
         router.navigateTo(Screens.EarthPhotosScreen())
     }

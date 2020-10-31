@@ -1,11 +1,14 @@
 package com.example.nasaclient.ui.main
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Toast
 import com.example.nasaclient.R
 import com.example.nasaclient.application.App
 import com.example.nasaclient.mvp.presenter.MainPresenter
 import com.example.nasaclient.mvp.view.MainView
 import com.example.nasaclient.ui.BackButtonListener
+import kotlinx.android.synthetic.main.activity_main.*
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import ru.terrakok.cicerone.NavigatorHolder
@@ -29,6 +32,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
 
         App.instance.appComponent.inject(this)
+
+        setSupportActionBar(main_activity_toolbar)
     }
 
     override fun onResumeFragments() {
@@ -41,6 +46,17 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         super.onPause()
 
         navigatorHolder.removeNavigator()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onBackPressed() {

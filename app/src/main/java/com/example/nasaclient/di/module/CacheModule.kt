@@ -8,7 +8,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class CascheModule {
+class CacheModule {
     @Singleton
     @Provides
     fun database(app: App): Database =

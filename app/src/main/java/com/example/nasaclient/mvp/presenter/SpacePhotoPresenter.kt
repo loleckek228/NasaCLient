@@ -1,6 +1,6 @@
 package com.example.nasaclient.mvp.presenter
 
-import com.example.nasaclient.mvp.model.repo.irepo.ISpacePhotoRepo
+import com.example.nasaclient.mvp.model.repo.irepo.IRepo
 import com.example.nasaclient.mvp.model.state.SpacePhotoState
 import com.example.nasaclient.mvp.view.SpacePhotoView
 import io.reactivex.rxjava3.core.Scheduler
@@ -16,7 +16,7 @@ class SpacePhotoPresenter(private val compositeDisposable: CompositeDisposable =
     MvpPresenter<SpacePhotoView>() {
 
     @Inject
-    lateinit var repo: ISpacePhotoRepo
+    lateinit var repo: IRepo<SpacePhotoState>
 
     @Inject
     lateinit var router: Router
@@ -32,7 +32,7 @@ class SpacePhotoPresenter(private val compositeDisposable: CompositeDisposable =
 
     private fun loadData() {
         compositeDisposable.add(
-            repo.getSpacePhoto()
+            repo.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(scheduler)
                 .doOnSubscribe(doOnSubscribe())

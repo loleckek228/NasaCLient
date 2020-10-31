@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.nasaclient.R
 import com.example.nasaclient.application.App
 import com.example.nasaclient.di.module.spacephoto.SpacePhotoSubcomponent
@@ -48,6 +49,8 @@ class SpacePhotoFragment : MvpAppCompatFragment(), BackButtonListener, SpacePhot
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         App.instance.appComponent.inject(this)
 
@@ -102,9 +105,11 @@ class SpacePhotoFragment : MvpAppCompatFragment(), BackButtonListener, SpacePhot
 
     private fun showViewLoading() {
         loading_frame_layout.visibility = View.VISIBLE
+        fragment_space_photo_container.visibility = View.GONE
     }
 
     private fun showViewWorking() {
         loading_frame_layout.visibility = View.GONE
+        fragment_space_photo_container.visibility = View.VISIBLE
     }
 }

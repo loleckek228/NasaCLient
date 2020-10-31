@@ -28,7 +28,6 @@
             android:layout_margin="@dimen/margin_xx_small"
             android:text="@string/caption" />
 
-
         <ImageView
             android:id="@+id/fragment_earth_photos_recyclerview_item_imageview"
             android:layout_width="match_parent"

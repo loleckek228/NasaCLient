@@ -1,10 +1,9 @@
 package com.example.nasaclient.ui.earthphotos
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nasaclient.R
 import com.example.nasaclient.application.App
@@ -41,6 +40,12 @@ class EarthPhotosFragment : MvpAppCompatFragment(), BackButtonListener, EarthPho
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_earth_photos, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onDestroy() {
