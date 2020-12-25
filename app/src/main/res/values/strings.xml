@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">NasaClient</string>
+    <string name="API_CODE">0ry3C5u2GVaOFhdh8e75fWiMdVKfanGOeK6usfwK</string>
+
+    //Astronomy Picture of the Day
+    <string name="header_astronomy_picture_of_the_day">Astronomy Picture of the Day</string>
+    <string name="description_picture_of_the_day">Discover the cosmos!
+        Each day a different image or photograph of our fascinating universe is featured,
+        along with a brief explanation written by a professional astronomer.</string>
+
+    //Earth Polychromatic Imaging Camera
+    <string name="header_earth_polychromatic_imaging_camera">Earth Polychromatic Imaging Camera</string>
+    <string name="description_earth_polychromatic_imaging_camera">Discover the earth!
+       Each day a new photos of Earth.</string>
+
+    //Mars Weather
+    <string name="header_mars_weather">Latest Weather of Mars at Elysium Planitia</string>
+    <string name="description_mars_weather">Discover the mars weather!
+       Check daily weather measurements on the surface of Mars at Elysium Planitia,
+        a flat, smooth plain near Mars\' equator.</string>
+
+    //Mars Photos
+    <string name="header_mars_rover_photos">Mars Rover Photos</string>
+    <string name="description_mars_rover_photos">Discover the mars!
+        Admiredaily photos of Mars taken by rovers!</string>
+    <string name="title">Title</string>
+    <string name="explanation">Explanation</string>
+    <string name="caption">Caption</string>
+    <string name="date">Date</string>
+    <string name="camera_name">Camera name</string>
+    <string name="sol">Sol</string>
+    <string name="earth_date">Earth date</string>
+    <string name="high">High</string>
+    <string name="low">Low</string>
 </resources>
